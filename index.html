@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>广告语中的奖励预期误差与幽默感</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --text: #1f2937;
+      --bg: #f8f9fa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      padding: 2rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    h1 {
+      color: var(--text);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+      color: #4b5563;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 2rem;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn[disabled] {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .progress {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>欢迎参与广告语实验研究</h1>
+    <p>本实验旨在研究不同表达方式的广告语如何影响人们对品牌的态度。您的参与对我们的研究非常重要。</p>
+    <p>在实验过程中，您将：</p>
+    <p>• 阅读并评价一系列广告语<br>
+       • 完成简单的问卷调查<br>
+       • 分享您的真实感受</p>
+    <p>整个过程约需 5-7 分钟完成。</p>
+    <button 
+      class="btn" 
+      id="startBtn"
+      onclick="handleStart()"
+      aria-label="开始实验">
+      点击开始实验
+    </button>
+    <div class="progress" id="progress" style="display: none;">
+      正在准备实验环境...
+    </div>
+  </div>
+
+  <script>
+    function handleStart() {
+      const btn = document.getElementById('startBtn');
+      const progress = document.getElementById('progress');
+      
+      btn.disabled = true;
+      progress.style.display = 'block';
+      
+      // 模拟加载过程
+      setTimeout(() => {
+        window.location.href = 'https://your.qualtrics.link.here';
+      }, 800);
+    }
+  </script>
+</body>
+</html>
